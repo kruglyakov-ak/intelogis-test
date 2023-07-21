@@ -14,7 +14,7 @@ const customIcon = new Icon({
   iconUrl: "images/marker.png",
   iconSize: [32, 32],
   iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
+  popupAnchor: [0, -20],
 });
 
 export const Map = () => {
