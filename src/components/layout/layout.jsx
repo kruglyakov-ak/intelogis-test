@@ -7,8 +7,8 @@ const { Text, Link } = Typography;
 
 export const MainLayout = ({ children }) => {
   return (
-    <Layout className={s.layout}>
-      <Content>{children}</Content>
+    <>
+      <Content className={s.main}>{children}</Content>
       <Footer className={s.footer}>
         <Text type="secondary">
           © {new Date().getFullYear()} created by{" "}
@@ -22,6 +22,6 @@ export const MainLayout = ({ children }) => {
           </Link>
         </Text>
       </Footer>
-    </Layout>
+    </>
   );
 };
