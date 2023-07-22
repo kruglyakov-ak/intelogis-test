@@ -1,4 +1,7 @@
 import { Table } from "antd";
+import { useDispatch } from "react-redux";
+
+import { setPoints } from "../../store/slices/route";
 import { ROUTES_DATA } from "../../shared/constants";
 
 const columns = [
@@ -36,11 +39,19 @@ const columns = [
 ];
 
 export const RoutesList = () => {
+  const dispatch = useDispatch();
   const changeRowHandler = (selectedRowKeys, selectedRows) => {
     console.log(
       `selectedRowKeys: ${selectedRowKeys}`,
       "selectedRows: ",
       selectedRows
+    );
+    dispatch(
+      setPoints([
+        { position: selectedRows[0].point1, popUpText: "Точка 1" },
+        { position: selectedRows[0].point2, popUpText: "Точка 2" },
+        { position: selectedRows[0].point3, popUpText: "Точка 3" },
+      ])
     );
   };
 
