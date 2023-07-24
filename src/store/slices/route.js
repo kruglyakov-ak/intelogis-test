@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   points: [],
+  routPolyline: []
 };
 
 export const rout = createSlice({
@@ -11,9 +12,12 @@ export const rout = createSlice({
     setPoints: (state, action) => {
       state.points = action.payload;
     },
+    setRoutPolyline: (state, action) => {
+      state.routPolyline = action.payload;
+    },
   },
 });
 
-export const { setPoints } = rout.actions;
+export const { setPoints, setRoutPolyline } = rout.actions;
 
 export default rout.reducer;
