@@ -1,8 +1,8 @@
 import { Table } from "antd";
 import { useDispatch } from "react-redux";
 import polyline from "@mapbox/polyline";
-import { setPoints, setRoutPolyline } from "../../store/slices/route";
-import { ROUTES_DATA } from "../../shared/constants";
+import { setPoints, setRoutPolyline } from "../../../../store/slices/route";
+import { ROUTES_DATA } from "../../../../shared/constants";
 
 const columns = [
   {
