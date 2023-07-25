@@ -22,7 +22,7 @@ export const route = createSlice({
   },
 });
 
-export const { getCurrentRouteSuccess, getPoints, getRoutePolylinePoints } =
+export const { getCurrentRoute, getPoints, getRoutePolylinePoints } =
   route.actions;
 
 export default route.reducer;

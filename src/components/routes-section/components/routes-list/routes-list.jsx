@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import { useDispatch } from "react-redux";
 import { ROUTES_DATA } from "../../../../shared/constants";
+import { getCurrentRoute } from "../../../../store/slices/route";
 
 const columns = [
   {
@@ -47,6 +48,11 @@ const dataSource = ROUTES_DATA.map(({ id, title, points }) => ({
 export const RoutesList = () => {
   const dispatch = useDispatch();
   const changeRowHandler = async (selectedRowKeys, selectedRows) => {
+    dispatch(
+      getCurrentRoute(
+        ROUTES_DATA.find((item) => item.id === selectedRowKeys[0])
+      )
+    );
     // const point1 = await fetch(
     //   `https://nominatim.openstreetmap.org/reverse/?lat=${selectedRows[0].point1[0]}&lon=${selectedRows[0].point1[1]}&zoom=18&addressdetails=1&format=json`
     // ).then((data) => data.json());
@@ -60,7 +66,6 @@ export const RoutesList = () => {
     // const poly = await fetch(
     //   `https://routing.openstreetmap.de/routed-car/route/v1/driving/${selectedRows[0].point1};${selectedRows[0].point2};${selectedRows[0].point3}?overview=full`
     // ).then((data) => data.json());
-
   };
 
   return (
