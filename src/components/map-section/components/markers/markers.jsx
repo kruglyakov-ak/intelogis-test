@@ -11,7 +11,7 @@ const customIcon = new Icon({
 });
 
 export const Markers = ({ map }) => {
-  const markers = useSelector((state) => state.rout.points);
+  const markers = useSelector((state) => state.route.points);
   const isMarkersEmpty = markers.length !== 0;
 
   useEffect(() => {

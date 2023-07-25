@@ -12,7 +12,7 @@ const zoom = 11;
 
 export const Map = () => {
   const [map, setMap] = useState(null);
-  const polyline = useSelector((state) => state.rout.routPolyline);
+  const polyline = useSelector((state) => state.route.routePolylinePoints);
 
   return (
     <MapContainer
