@@ -1,11 +1,10 @@
 import createSagaMiddleware from "redux-saga";
-
 import { configureStore } from "@reduxjs/toolkit";
+
 import route from "./slices/route";
+import { rootWatcher } from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
-
-function* sagas() {}
 
 export const store = configureStore({
   devTools: true,
@@ -16,4 +15,4 @@ export const store = configureStore({
     getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
 });
 
-sagaMiddleware.run(sagas);
+sagaMiddleware.run(rootWatcher);
