@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import { useDispatch } from "react-redux";
 import { ROUTES_DATA } from "../../../../shared/constants";
-import { changeRoute, getCurrentRoute } from "../../../../store/slices/route";
+import { getCurrentRoute } from "../../../../store/slices/route";
 
 const columns = [
   {
@@ -53,7 +53,6 @@ export const RoutesList = () => {
         ROUTES_DATA.find((item) => item.id === selectedRowKeys[0])
       )
     );
-    dispatch(changeRoute());
   };
 
   return (

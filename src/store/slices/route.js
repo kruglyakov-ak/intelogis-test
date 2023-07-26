@@ -1,10 +1,11 @@
-import { createAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentRoute: null,
   points: [],
   routePolylinePoints: [],
-  isLoading: false
+  isLoading: false,
+  error: null,
 };
 
 export const route = createSlice({
@@ -23,13 +24,20 @@ export const route = createSlice({
     setIsLoading: (state, action) => {
       state.isLoading = action.payload;
     },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
   },
 });
 
-export const CHANGE_ROUTE = "route/changeRoute";
-export const changeRoute = createAction(CHANGE_ROUTE);
+export const GET_CURRENT_ROUTE = "route/getCurrentRoute";
 
-export const { getCurrentRoute, setRoutePoints, setRoutePolylinePoints, setIsLoading } =
-  route.actions;
+export const {
+  getCurrentRoute,
+  setRoutePoints,
+  setRoutePolylinePoints,
+  setIsLoading,
+  setError,
+} = route.actions;
 
 export default route.reducer;
