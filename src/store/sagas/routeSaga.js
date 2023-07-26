@@ -1,12 +1,18 @@
-import { put, takeEvery, select } from "redux-saga/effects";
+import { put, takeLatest, select } from "redux-saga/effects";
 import { CHANGE_ROUTE } from "../slices/route";
 import {
   getRoutePointsApi,
   getRoutePolylinePointsApi,
 } from "../../api/route/routeApi";
-import { setRoutePoints, setRoutePolylinePoints } from "../slices/route";
+import {
+  setRoutePoints,
+  setRoutePolylinePoints,
+  setIsLoading,
+} from "../slices/route";
 
 export function* changeRouteWorcker() {
+  yield put(setIsLoading(true));
+
   const currentRoutePoints = yield select(
     ({ route }) => route.currentRoute.points
   );
@@ -21,8 +27,10 @@ export function* changeRouteWorcker() {
   yield put(setRoutePoints(adaptedPoints));
 
   yield put(setRoutePolylinePoints(polylinePoints));
+
+  yield put(setIsLoading(false));
 }
 
 export function* routeWatcher() {
-  yield takeEvery(CHANGE_ROUTE, changeRouteWorcker);
+  yield takeLatest(CHANGE_ROUTE, changeRouteWorcker);
 }

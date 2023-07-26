@@ -4,6 +4,7 @@ const initialState = {
   currentRoute: null,
   points: [],
   routePolylinePoints: [],
+  isLoading: false
 };
 
 export const route = createSlice({
@@ -19,13 +20,16 @@ export const route = createSlice({
     setRoutePolylinePoints: (state, action) => {
       state.routePolylinePoints = action.payload;
     },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
 export const CHANGE_ROUTE = "route/changeRoute";
 export const changeRoute = createAction(CHANGE_ROUTE);
 
-export const { getCurrentRoute, setRoutePoints, setRoutePolylinePoints } =
+export const { getCurrentRoute, setRoutePoints, setRoutePolylinePoints, setIsLoading } =
   route.actions;
 
 export default route.reducer;
