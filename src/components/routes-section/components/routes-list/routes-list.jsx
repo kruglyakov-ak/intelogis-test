@@ -64,7 +64,7 @@ export const RoutesList = () => {
       columns={columns}
       dataSource={dataSource}
       pagination={{ position: [] }}
-      scroll={{ x: 599, y: 800 }}
+      scroll={{ x: 599 }}
       bordered
     />
   );

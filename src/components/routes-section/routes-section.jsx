@@ -10,7 +10,7 @@ export const RoutesSection = () => {
 
   return (
     <Col span={10}>
-      <Space direction="vertical">
+      <Space style={{width: '100%', height: "100%"}} direction="vertical">
         <RoutesList />
         {isLoading && <Text type="secondary">Идет загрузка...</Text>}
         {error && <Text type="danger">Ошибка: {error}</Text>}
